@@ -1,0 +1,370 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetsave Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="/Content/css/3.3.6/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: "Cormorant Infant", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin: 0;
+            font-family: "Cormorant Infant", sans-serif;
+        }
+
+        .memberlogin {
+            background-image: url('../../Content/assets/img/loginbg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            position: absolute;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .memberlogin::after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background: rgba(0, 0, 0,0.5);
+            }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1155px;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .heading_part {
+            padding: 50px 80px;
+            text-align: center;
+            font-size: 36px;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        }
+
+            .heading_part h1 {
+                font-size: 96px;
+                text-transform: uppercase;
+                font-weight: 600;
+                text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+                margin-bottom: 0;
+                line-height: 1;
+            }
+
+        .form_blk {
+            max-width: 540px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.50);
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(20px);
+        }
+
+            .form_blk h2 {
+                font-size: 32px;
+                text-align: center;
+                font-weight: 500;
+            }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            flex-direction: column;
+        }
+
+            .form input:not([type="submit"]) {
+                background-color: #fff;
+                padding: 15px;
+                border: 1px solid #E8E9EA;
+                border-radius: 6px;
+                width: 100%;
+                font-size: 20px;
+                font-family: "Cormorant Infant", sans-serif;
+                color: #282828;
+                position: relative;
+                font-weight: 400;
+            }
+
+            .form input[type="submit"] {
+                width: 100%;
+                background-color: #DE1B1B;
+                color: #fff;
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 1;
+                border: 1px solid #DE1B1B;
+                border-radius: 60px;
+                padding: 14px;
+                font-family: "Cormorant Infant", sans-serif;
+                transition: all .5s ease-in-out;
+            }
+
+                .form input[type="submit"]:hover {
+                    background-color: #fff;
+                    color: #DE1B1B;
+                    border-color: #fff;
+                }
+
+        .form-row {
+            position: relative;
+        }
+
+            .form-row svg {
+                position: absolute;
+                bottom: 20px;
+                cursor: pointer;
+                right: 15px;
+            }
+
+        label {
+            line-height: 1.3;
+        }
+
+        a {
+            color: #DE1B1B;
+        }
+
+        @media screen and (max-width:767px) {
+            .memberlogin {
+                padding: 50px 20px;
+            }
+
+            .heading_part h1 {
+                font-size: 40px;
+            }
+
+            .heading_part {
+                padding: 20px;
+                font-size: 20px;
+                line-height: 1;
+            }
+
+            .form_blk h2 {
+                font-size: 25px;
+            }
+
+            .form_blk {
+                padding: 15px;
+            }
+
+            .form input:not([type="submit"]) {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .form-row svg {
+                bottom: 15px;
+            }
+
+            .form input[type="submit"] {
+                font-size: 20px;
+                padding: 10px;
+            }
+        }
+    </style>
+
+    <div id="loadChildWindows">
+        <div class="memberlogin">
+            <div class="container">
+                <div class="heading_part">
+                    <h1>Jetsave Visa Portal</h1>
+                    <p>The ultimate toolkit for every travel agent</p>
+                </div>
+                <div class="form_blk">
+                    <div class="form">
+                        <h2>Member Login</h2>
+<form action="/Login/login" data-ajax="true" data-ajax-failure="OnFailure" data-ajax-loading="#progress" data-ajax-success="OnSuccess" id="form0" method="post"><input name="__RequestVerificationToken" type="hidden" value="bzV3PergOHLOo_k-oTSvI1vmU_GDZlXF7R2VsN4VaWDlcwdTRrwko_fpsa2_XZmICjFsvbhSpNrVnhH6v_pCGn2zWt5IzuXg9c0O115WJrw1" />    <div id="login">
+        
+        <div class="form-row">
+            <label for="username">Username</label>
+            <input class="txt text-box single-line" data-val="true" data-val-required="Please Enter User Name." id="AGENT_USERNAME" name="AGENT_USERNAME" placeholder="User Name" type="text" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="AGENT_USERNAME" data-valmsg-replace="true" placeholder="User Name"></span>
+        </div>
+        <div class="form-row">
+            <label for="password">Password</label>
+            <input class="txt text-box single-line password" data-val="true" data-val-required="Please Enter The Password." id="AGENT_PASSWORD" name="AGENT_PASSWORD" placeholder="Password" type="password" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="AGENT_PASSWORD" data-valmsg-replace="true" placeholder="Password"></span>
+
+        </div>
+        <input type="submit" value="Login">
+
+    </div>
+    <script type="text/javascript">
+        function OnSuccess(res) {
+            if (res['res'] == 'OK') {
+                window.location.href = '/Welcome';
+            }
+
+            else {
+                $("#myModalerror").modal('show');
+                showMessage('ErrorMsg', 'error', String(res['msg']));
+            }
+        }
+        function OnFailure(request, status, error) {
+            $("#myModalerror").modal('show');
+            showMessage('ErrorMsg', 'error', request.responseText);
+        }
+    </script>
+</form>
+                        <p>Don’t have an account? <a href="https://jetsavetours.net/Register">Become a member</a></p>
+                    
+                        <a onclick="viewvisitor()" style="cursor:pointer; width: 100%;
+                background-color: #DE1B1B;
+                color: #fff;
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 1;
+                border: 1px solid #DE1B1B;
+                border-radius: 60px;
+                padding: 14px;
+                font-family: "Cormorant Infant", sans-serif;
+                transition: all .5s ease-in-out;">
+                            <div class="headding" align="center">
+                                <span>Visitor</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="progress" class="processing">
+        <div class="center">
+            <img src="/Content/images/loading.gif" style="margin-left: 4.7em;" />
+        </div>
+    </div>
+
+   
+    <style>
+        .processing {
+            position: fixed;
+            z-index: 999999999999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.5;
+            -moz-opacity: 0.8;
+            display: none;
+        }
+
+            .processing > .center {
+                margin: 300px auto;
+                padding: 30px;
+                width: 237px;
+                background-color: White;
+                border-radius: 10px;
+                filter: alpha(opacity=100);
+                opacity: 1;
+                -moz-opacity: 1;
+            }
+    </style>
+
+    
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.OpenLoginForm', function () {
+                $('.slider').removeClass('slider-registration');
+                fnOpenLoginForm();
+            });
+        });
+
+        function fnOpenLoginForm() {
+            $.ajax({
+                type: "GET",
+                url: '/Memberlogin/MemberLogin_Partial',
+                dataType: "html",
+                async: true,
+                success: function (a) {
+                    $('#loadChildWindows').html(a)
+                },
+                error: function (response) {
+                    hideLoader();
+                },
+                beforeSend: function (xhr) {
+                    showLoader();
+                },
+                complete: function (xhr) {
+                    hideLoader();
+                }
+            });
+        }
+
+        function viewvisitor() {
+            $.ajax({
+                url: '/Visitor/Visitor_Partial',
+                type: "GET",
+                dataType: "html",
+                async: true,
+                success: function (a) {
+                    $('#VisitorFormLoad').html(a);
+                    $("#ModalVisitor").modal('show');
+                },
+                error: function (response) {
+                    hideLoader();
+                },
+                beforeSend: function (xhr) {
+                    showLoader();
+                },
+                complete: function (xhr) {
+                    hideLoader();
+                }
+            })
+        }
+
+    </script>
+
+    <script src="/Content/Custom/general-1.1.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.js"></script>
+    <script type="text/javascript" src="/Content/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Content/js/main.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</body>
+</html>
+
